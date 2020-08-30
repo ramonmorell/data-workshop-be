@@ -29,8 +29,8 @@ public interface IProjectCtrl {
 	public ProjectDto findProyectByName(@RequestParam String name);
 
 	@GetMapping(value = "/projects", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<ProjectDto> findAllProjects();
-
+	public List<ProjectDto> findAllProjects(@RequestParam(required = false) String name);
+	
 	@PostMapping(value = "/project", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ProjectDto> saveProyect(@RequestBody(required = false) ProjectDto project);
 	

@@ -4,6 +4,7 @@
 package com.dataworkshop.dataworkshopbe.service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,11 +54,27 @@ public class ProjectSrv implements IProjectSrv {
 
 	@Override
 	public List<ProjectDto> findAllProjects() {
-		List<ProjectDto> res = null;
+		List<ProjectDto> res =  new ArrayList<ProjectDto>();
 
 		try {
 			List<ProjectEntity> entityList;
 			entityList = repository.findAll();
+			res = entityList.stream().map(en -> mapperProject(en)).collect(Collectors.toList());
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return res;
+	}
+	
+	@Override
+	public List<ProjectDto> findAllProjects(String name) {
+		List<ProjectDto> res = new ArrayList<ProjectDto>();
+
+		try {
+			List<ProjectEntity> entityList;
+			entityList = repository.findByNameContainsIgnoreCase(name).get();
 			res = entityList.stream().map(en -> mapperProject(en)).collect(Collectors.toList());
 
 		} catch (Exception e) {
@@ -86,4 +103,5 @@ public class ProjectSrv implements IProjectSrv {
 	public void deleteProyect(long id) throws Exception {
 		repository.deleteById(id);
 	}
+
 }

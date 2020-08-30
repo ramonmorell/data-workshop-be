@@ -31,9 +31,14 @@ public class ProjectCtrl implements IProjectCtrl {
 	}
 
 	@Override
-	public List<ProjectDto> findAllProjects() {
+	public List<ProjectDto> findAllProjects(String name) {
 		// TODO Auto-generated method stub
-		return projectSrv.findAllProjects();
+		if(name != null) {
+			return projectSrv.findAllProjects(name);
+		} else {
+			return projectSrv.findAllProjects();
+		}
+		
 	}
 
 
