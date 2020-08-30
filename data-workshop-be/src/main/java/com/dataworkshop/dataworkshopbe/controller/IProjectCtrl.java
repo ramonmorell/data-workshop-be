@@ -5,10 +5,14 @@ package com.dataworkshop.dataworkshopbe.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,16 +23,19 @@ import com.dataworkshop.dataworkshopbe.dto.ProjectDto;
  *
  */
 @RestController
-@RequestMapping("/api")
 public interface IProjectCtrl {
-	
+
 	@GetMapping(value = "/project", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ProjectDto findProyectByName(@RequestParam String name);
 
 	@GetMapping(value = "/projects", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<ProjectDto> findAllProjects();
-	
+
 	@PostMapping(value = "/project", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ProjectDto saveProyect();
+	public ResponseEntity<ProjectDto> saveProyect(@RequestBody(required = false) ProjectDto project);
+	
+	@DeleteMapping(value="/project/{id}")
+	public ResponseEntity<HttpStatus> deleteProject(@PathVariable("id") long id);
+	
 
 }

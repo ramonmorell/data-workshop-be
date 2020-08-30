@@ -8,6 +8,5 @@ package com.dataworkshop.dataworkshopbe.enums;
  *
  */
 public enum DtoStatus {
-	STATUS_ACTIVE, STATUS_DELETED
-
+	STATUS_DELETED, STATUS_ACTIVE
 }

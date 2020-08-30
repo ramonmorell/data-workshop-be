@@ -4,7 +4,7 @@
 package com.dataworkshop.dataworkshopbe.entity;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,11 +47,11 @@ public class ProjectEntity implements Serializable {
 	// TODO
 	private long idData;
 	@NotNull
-	private Date dateRegistry;
+	private LocalDateTime dateRegistry;
 	@NotNull
 	private DtoStatus status;
 
-	public ProjectEntity(@NotNull String name, @NotNull String description, long idData, @NotNull Date dateRegistry,
+	public ProjectEntity(@NotNull String name, @NotNull String description, long idData, @NotNull LocalDateTime dateRegistry,
 			@NotNull DtoStatus status) {
 		super();
 		this.name = name;

@@ -4,7 +4,7 @@
 package com.dataworkshop.dataworkshopbe.dto;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import com.dataworkshop.dataworkshopbe.enums.DtoStatus;
 
@@ -33,7 +33,7 @@ public class ProjectDto implements Serializable {
 	private String name;
 	private String description;
 	private long idData;
-	private Date dateRegistry;
+	private LocalDateTime  dateRegistry;
 	private DtoStatus status;
 
 }

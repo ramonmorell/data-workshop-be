@@ -16,6 +16,6 @@ import com.dataworkshop.dataworkshopbe.entity.ProjectEntity;
  */
 @Repository
 public interface ProjectRepository extends JpaRepository<ProjectEntity, Long>{
-	Optional <ProjectEntity> findByName(String nombre);
+	Optional <ProjectEntity> findByName(String name);
 	Optional <ProjectEntity> findById(Long id);
 }
