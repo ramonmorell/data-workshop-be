@@ -1,5 +1,5 @@
 # data-workshop-ds
-Spring Eureka discoveri server
+Spring Eureka discovery server
 
 # data-workshop-zul
 Spring Zuul proxy
