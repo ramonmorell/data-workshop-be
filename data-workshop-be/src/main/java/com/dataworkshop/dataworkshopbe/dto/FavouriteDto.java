@@ -5,7 +5,6 @@ package com.dataworkshop.dataworkshopbe.dto;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Set;
 
 import com.dataworkshop.dataworkshopbe.enums.DtoStatus;
 
@@ -24,18 +23,16 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProjectDto implements Serializable {
+public class FavouriteDto implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private long id;
-	private String name;
-	private String description;
-	private long idData;
-	private Set<FavouriteDto> favourites;
-	private LocalDateTime  dateRegistry;
-	private DtoStatus status;
 
+	private long id;
+	private long idUser;
+	private long idProject;
+	private LocalDateTime dateRegistry;
+	private DtoStatus status;
 }

@@ -5,12 +5,15 @@ package com.dataworkshop.dataworkshopbe.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.dataworkshop.dataworkshopbe.enums.DtoStatus;
@@ -25,11 +28,12 @@ import lombok.ToString;
  *
  */
 @Entity
+@Table(name="TBL_PROJECTS")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class ProjectEntity implements Serializable {
+public class Project implements Serializable {
 
 	/**
 	 * 
@@ -46,17 +50,21 @@ public class ProjectEntity implements Serializable {
 	private String description;
 	// TODO
 	private long idData;
+	@OneToMany(mappedBy = "project")
+	private Set<Favourite> favourites;
 	@NotNull
 	private LocalDateTime dateRegistry;
 	@NotNull
 	private DtoStatus status;
-
-	public ProjectEntity(@NotNull String name, @NotNull String description, long idData, @NotNull LocalDateTime dateRegistry,
-			@NotNull DtoStatus status) {
+	
+	public Project(long id, @NotNull String name, @NotNull String description, long idData,
+			Set<Favourite> favourites, @NotNull LocalDateTime dateRegistry, @NotNull DtoStatus status) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.idData = idData;
+		this.favourites = favourites;
 		this.dateRegistry = dateRegistry;
 		this.status = status;
 	}

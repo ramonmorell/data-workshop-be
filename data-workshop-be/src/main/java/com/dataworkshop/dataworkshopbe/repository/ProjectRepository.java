@@ -9,15 +9,15 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.dataworkshop.dataworkshopbe.entity.ProjectEntity;
+import com.dataworkshop.dataworkshopbe.entity.Project;
 
 /**
  * @author ramon
  *
  */
 @Repository
-public interface ProjectRepository extends JpaRepository<ProjectEntity, Long>{
-	Optional <ProjectEntity> findByName(String name);
-	Optional <ProjectEntity> findById(Long id);
-	Optional <List<ProjectEntity>> findByNameContainsIgnoreCase(String name);
+public interface ProjectRepository extends JpaRepository<Project, Long>{
+	Optional <Project> findByName(String name);
+	Optional <Project> findById(Long id);
+	Optional <List<Project>> findByNameContainsIgnoreCase(String name);
 }
