@@ -5,6 +5,7 @@ package com.dataworkshop.dataworkshopbe.service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -109,8 +110,10 @@ public class ProjectSrv implements IProjectSrv {
 		entity.setIdData(project.getIdData());
 		entity.setDateRegistry(LocalDateTime.now());
 		entity.setStatus(DtoStatus.STATUS_ACTIVE);
-
+		entity.setFavourites(new HashSet<Favourite>());
+		
 		res = mapperProject(repository.save(entity));
+		
 		return res;
 	}
 

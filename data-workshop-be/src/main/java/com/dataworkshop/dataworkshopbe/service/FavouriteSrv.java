@@ -26,24 +26,32 @@ public class FavouriteSrv implements IFavouriteSrv {
 	
 	@Autowired
 	ProjectRepository projectRepository;
+	
+	static FavouriteDto mapperFavourite(Favourite entity) {
+		FavouriteDto res = new FavouriteDto();
+		res.setId(entity.getId());
+		res.setIdUser(entity.getId());
+		res.setIdProject(entity.getProject().getId());
+		res.setDateRegistry(entity.getDateRegistry());
+		res.setStatus(entity.getStatus());
+		
+		return res;
+	}
+
 
 	@Override
 	public FavouriteDto saveFavourite(FavouriteDto favourite) {
-		try {
-			Favourite favouriteEntity = new Favourite();
-			
-			favouriteEntity.setIdUser(0);
-			favouriteEntity.setProject(projectRepository.findById(favourite.getIdProject()).get());
-			favouriteEntity.setDateRegistry(LocalDateTime.now());
-			favouriteEntity.setStatus(DtoStatus.STATUS_ACTIVE);
-			
-			repository.save(favouriteEntity);
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		FavouriteDto res = new FavouriteDto();
+		Favourite favouriteEntity = new Favourite();
 		
-		return null;
+		favouriteEntity.setIdUser(0);
+		favouriteEntity.setProject(projectRepository.findById(favourite.getIdProject()).get());
+		favouriteEntity.setDateRegistry(LocalDateTime.now());
+		favouriteEntity.setStatus(DtoStatus.STATUS_ACTIVE);
+		
+		res = mapperFavourite(repository.save(favouriteEntity));
+		
+		return res;
 	}
 
 	@Override
