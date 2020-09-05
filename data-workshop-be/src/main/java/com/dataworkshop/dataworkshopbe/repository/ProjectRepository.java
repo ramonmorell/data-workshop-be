@@ -17,10 +17,13 @@ import com.dataworkshop.dataworkshopbe.entity.Project;
  *
  */
 @Repository
-public interface ProjectRepository extends JpaRepository<Project, Long>{
-	Optional <Project> findByName(String name);
-	Optional <Project> findById(Long id);
-	Optional <List<Project>> findByNameContainsIgnoreCase(String name);
+public interface ProjectRepository extends JpaRepository<Project, Long> {
+	Optional<Project> findById(Long id);
+
+	Optional<Project> findByName(String name);
+
+	Optional<List<Project>> findByNameContainsIgnoreCase(String name);
+
 	@Query("SELECT a FROM Project a WHERE a.id IN(SELECT a.project FROM Favourite a)")
-	Optional <List<Project>> findAllFavourites();
+	Optional<List<Project>> findAllFavourites();
 }

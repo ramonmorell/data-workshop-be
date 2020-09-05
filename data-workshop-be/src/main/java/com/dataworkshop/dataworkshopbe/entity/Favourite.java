@@ -27,7 +27,7 @@ import lombok.ToString;
  *
  */
 @Entity
-@Table(name="TBL_FAVOURITES")
+@Table(name = "TBL_FAVOURITES")
 @Getter
 @Setter
 @ToString
@@ -38,19 +38,20 @@ public class Favourite implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@NotNull
 	private long idUser;
 	@ManyToOne
-	@JoinColumn(name="project_id", nullable = false)
+	@JoinColumn(name = "project_id", nullable = false)
 	private Project project;
 	@NotNull
 	private LocalDateTime dateRegistry;
 	@NotNull
 	private DtoStatus status;
+
 	public Favourite(long id, @NotNull long idUser, Project project, @NotNull LocalDateTime dateRegistry,
 			@NotNull DtoStatus status) {
 		super();

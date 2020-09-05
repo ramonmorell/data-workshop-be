@@ -30,15 +30,14 @@ public interface IProjectCtrl {
 
 	@GetMapping(value = "/projects", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<ProjectDto> findAllProjects(@RequestParam(required = false) String name);
-	
+
 	@GetMapping(value = "/projectsFavourites", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<ProjectDto> findAllProjectsFavourites();
-	
+
 	@PostMapping(value = "/project", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ProjectDto> saveProyect(@RequestBody(required = false) ProjectDto project);
-	
-	@DeleteMapping(value="/project/{id}")
+
+	@DeleteMapping(value = "/project/{id}")
 	public ResponseEntity<HttpStatus> deleteProject(@PathVariable("id") long id);
-	
 
 }

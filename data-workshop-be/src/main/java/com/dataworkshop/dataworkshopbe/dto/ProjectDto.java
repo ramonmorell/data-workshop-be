@@ -35,7 +35,7 @@ public class ProjectDto implements Serializable {
 	private String description;
 	private long idData;
 	private Set<FavouriteDto> favourites;
-	private LocalDateTime  dateRegistry;
+	private LocalDateTime dateRegistry;
 	private DtoStatus status;
 
 }

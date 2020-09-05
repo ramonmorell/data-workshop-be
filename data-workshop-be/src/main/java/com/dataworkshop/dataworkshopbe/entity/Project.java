@@ -29,7 +29,7 @@ import lombok.ToString;
  *
  */
 @Entity
-@Table(name="TBL_PROJECTS")
+@Table(name = "TBL_PROJECTS")
 @Getter
 @Setter
 @ToString
@@ -57,9 +57,9 @@ public class Project implements Serializable {
 	private LocalDateTime dateRegistry;
 	@NotNull
 	private DtoStatus status;
-	
-	public Project(long id, @NotNull String name, @NotNull String description, long idData,
-			Set<Favourite> favourites, @NotNull LocalDateTime dateRegistry, @NotNull DtoStatus status) {
+
+	public Project(long id, @NotNull String name, @NotNull String description, long idData, Set<Favourite> favourites,
+			@NotNull LocalDateTime dateRegistry, @NotNull DtoStatus status) {
 		super();
 		this.id = id;
 		this.name = name;

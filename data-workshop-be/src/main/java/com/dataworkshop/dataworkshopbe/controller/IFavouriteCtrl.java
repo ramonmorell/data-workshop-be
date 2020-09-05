@@ -21,9 +21,9 @@ import com.dataworkshop.dataworkshopbe.dto.FavouriteDto;
 @RestController
 public interface IFavouriteCtrl {
 
-	@PostMapping(value="/favourite", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<FavouriteDto> saveFavourite (@RequestBody(required = false) FavouriteDto favourite);
-	
-	@DeleteMapping(value="/favourite/{id}")
+	@PostMapping(value = "/favourite", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<FavouriteDto> saveFavourite(@RequestBody(required = false) FavouriteDto favourite);
+
+	@DeleteMapping(value = "/favourite/{id}")
 	public ResponseEntity<HttpStatus> deleteProject(@PathVariable("id") long id);
 }
