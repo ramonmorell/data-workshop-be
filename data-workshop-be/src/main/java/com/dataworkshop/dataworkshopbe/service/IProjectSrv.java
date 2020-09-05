@@ -18,10 +18,12 @@ public interface IProjectSrv {
 	public ProjectDto findProyectByName(String name);
 
 	public List<ProjectDto> findAllProjects();
-	
+
 	public List<ProjectDto> findAllProjects(String name);
 
-	public ProjectDto saveProyect (ProjectDto project) throws Exception;
+	public List<ProjectDto> findAllProjectsFavourites();
 
-	public void deleteProyect (long id) throws Exception;
+	public ProjectDto saveProyect(ProjectDto project) throws Exception;
+
+	public void deleteProyect(long id) throws Exception;
 }

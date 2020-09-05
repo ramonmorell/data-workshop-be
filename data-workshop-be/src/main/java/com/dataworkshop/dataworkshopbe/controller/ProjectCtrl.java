@@ -19,10 +19,9 @@ import com.dataworkshop.dataworkshopbe.service.ProjectSrv;
  */
 @RestController
 public class ProjectCtrl implements IProjectCtrl {
-	
+
 	@Autowired
 	ProjectSrv projectSrv;
-	
 
 	@Override
 	public ProjectDto findProyectByName(String name) {
@@ -33,14 +32,19 @@ public class ProjectCtrl implements IProjectCtrl {
 	@Override
 	public List<ProjectDto> findAllProjects(String name) {
 		// TODO Auto-generated method stub
-		if(name != null) {
+		if (name != null) {
 			return projectSrv.findAllProjects(name);
 		} else {
 			return projectSrv.findAllProjects();
 		}
-		
+
 	}
 
+	@Override
+	public List<ProjectDto> findAllProjectsFavourites() {
+		// TODO Auto-generated method stub
+		return projectSrv.findAllProjectsFavourites();
+	}
 
 	@Override
 	public ResponseEntity<ProjectDto> saveProyect(ProjectDto project) {
@@ -48,10 +52,10 @@ public class ProjectCtrl implements IProjectCtrl {
 		try {
 			ProjectDto _project = projectSrv.saveProyect(project);
 			return new ResponseEntity<>(_project, HttpStatus.CREATED);
-		} catch ( Exception e) {
+		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
+
 	}
 
 	@Override
@@ -60,7 +64,7 @@ public class ProjectCtrl implements IProjectCtrl {
 		try {
 			projectSrv.deleteProyect(id);
 			return new ResponseEntity<>(HttpStatus.OK);
-		}catch( Exception e) {
+		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

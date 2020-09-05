@@ -50,7 +50,6 @@ public class ProjectSrv implements IProjectSrv {
 		res.setDateRegistry(entity.getDateRegistry());
 		res.setStatus(entity.getStatus());
 
-
 		return res;
 	}
 
@@ -101,6 +100,22 @@ public class ProjectSrv implements IProjectSrv {
 	}
 
 	@Override
+	public List<ProjectDto> findAllProjectsFavourites() {
+		List<ProjectDto> res = new ArrayList<ProjectDto>();
+
+		try {
+			List<Project> entityList;
+			entityList = repository.findAllFavourites().get();
+			res = entityList.stream().map(en -> mapperProject(en)).collect(Collectors.toList());
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return res;
+	}
+
+	@Override
 	public ProjectDto saveProyect(ProjectDto project) throws Exception {
 		ProjectDto res = new ProjectDto();
 		Project entity = new Project();
@@ -111,9 +126,9 @@ public class ProjectSrv implements IProjectSrv {
 		entity.setDateRegistry(LocalDateTime.now());
 		entity.setStatus(DtoStatus.STATUS_ACTIVE);
 		entity.setFavourites(new HashSet<Favourite>());
-		
+
 		res = mapperProject(repository.save(entity));
-		
+
 		return res;
 	}
 
