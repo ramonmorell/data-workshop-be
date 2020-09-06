@@ -26,13 +26,13 @@ import com.dataworkshop.dataworkshopbe.dto.ProjectDto;
 public interface IProjectCtrl {
 
 	@GetMapping(value = "/project", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ProjectDto findProyectByName(@RequestParam String name);
+	public ResponseEntity<ProjectDto> findProyectByName(@RequestParam String name);
 
 	@GetMapping(value = "/projects", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<ProjectDto> findAllProjects(@RequestParam(required = false) String name);
+	public ResponseEntity<List<ProjectDto>> findAllProjects(@RequestParam(required = false) String name);
 
 	@GetMapping(value = "/projectsFavourites", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<ProjectDto> findAllProjectsFavourites();
+	public ResponseEntity<List<ProjectDto>> findAllProjectsFavourites();
 
 	@PostMapping(value = "/project", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<ProjectDto> saveProyect(@RequestBody(required = false) ProjectDto project);

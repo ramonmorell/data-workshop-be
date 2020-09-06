@@ -15,13 +15,13 @@ import com.dataworkshop.dataworkshopbe.dto.ProjectDto;
  */
 @Service
 public interface IProjectSrv {
-	public ProjectDto findProyectByName(String name);
+	public ProjectDto findProyectByName(String name) throws Exception;
 
-	public List<ProjectDto> findAllProjects();
+	public List<ProjectDto> findAllProjects() throws Exception;
 
-	public List<ProjectDto> findAllProjects(String name);
+	public List<ProjectDto> findAllProjects(String name) throws Exception;
 
-	public List<ProjectDto> findAllProjectsFavourites();
+	public List<ProjectDto> findAllProjectsFavourites() throws Exception;
 
 	public ProjectDto saveProyect(ProjectDto project) throws Exception;
 

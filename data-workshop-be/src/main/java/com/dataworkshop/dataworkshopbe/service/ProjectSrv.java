@@ -31,60 +31,42 @@ public class ProjectSrv implements IProjectSrv {
 	public ProjectDto findProyectByName(String name) {
 		ProjectDto res = null;
 		Project entity = new Project();
-		try {
-			entity = repository.findByName(name).get();
-			res = ProjectMapper.mapProjectToDto(entity);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+
+		entity = repository.findByName(name).get();
+		res = ProjectMapper.mapProjectToDto(entity);
 
 		return res;
 	}
 
 	@Override
-	public List<ProjectDto> findAllProjects() {
+	public List<ProjectDto> findAllProjects() throws Exception {
 		List<ProjectDto> res = new ArrayList<ProjectDto>();
 
-		try {
-			List<Project> entityList;
-			entityList = repository.findAll();
-			res = entityList.stream().map(en -> ProjectMapper.mapProjectToDto(en)).collect(Collectors.toList());
-
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		List<Project> entityList;
+		entityList = repository.findAll();
+		res = entityList.stream().map(en -> ProjectMapper.mapProjectToDto(en)).collect(Collectors.toList());
 
 		return res;
 	}
 
 	@Override
-	public List<ProjectDto> findAllProjects(String name) {
+	public List<ProjectDto> findAllProjects(String name) throws Exception {
 		List<ProjectDto> res = new ArrayList<ProjectDto>();
 
-		try {
-			List<Project> entityList;
-			entityList = repository.findByNameContainsIgnoreCase(name).get();
-			res = entityList.stream().map(en -> ProjectMapper.mapProjectToDto(en)).collect(Collectors.toList());
-
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		List<Project> entityList;
+		entityList = repository.findByNameContainsIgnoreCase(name).get();
+		res = entityList.stream().map(en -> ProjectMapper.mapProjectToDto(en)).collect(Collectors.toList());
 
 		return res;
 	}
 
 	@Override
-	public List<ProjectDto> findAllProjectsFavourites() {
+	public List<ProjectDto> findAllProjectsFavourites() throws Exception {
 		List<ProjectDto> res = new ArrayList<ProjectDto>();
 
-		try {
-			List<Project> entityList;
-			entityList = repository.findAllFavourites().get();
-			res = entityList.stream().map(en -> ProjectMapper.mapProjectToDto(en)).collect(Collectors.toList());
-
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+		List<Project> entityList;
+		entityList = repository.findAllFavourites().get();
+		res = entityList.stream().map(en -> ProjectMapper.mapProjectToDto(en)).collect(Collectors.toList());
 
 		return res;
 	}
@@ -92,12 +74,10 @@ public class ProjectSrv implements IProjectSrv {
 	@Override
 	public ProjectDto saveProyect(ProjectDto project) throws Exception {
 		ProjectDto res = new ProjectDto();
-
 		Project entity = ProjectMapper.mapProjectToEntity(project);
 
 		entity.setDateRegistry(LocalDateTime.now());
 		entity.setStatus(DtoStatus.STATUS_ACTIVE);
-
 		res = ProjectMapper.mapProjectToDto(repository.save(entity));
 
 		return res;

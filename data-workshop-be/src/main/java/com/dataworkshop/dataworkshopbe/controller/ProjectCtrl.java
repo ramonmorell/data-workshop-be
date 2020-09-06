@@ -3,6 +3,7 @@
  */
 package com.dataworkshop.dataworkshopbe.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,48 +25,64 @@ public class ProjectCtrl implements IProjectCtrl {
 	ProjectSrv projectSrv;
 
 	@Override
-	public ProjectDto findProyectByName(String name) {
-		// TODO Auto-generated method stub
-		return projectSrv.findProyectByName(name);
-	}
+	public ResponseEntity<ProjectDto> findProyectByName(String name) {
+		ProjectDto _project;
 
-	@Override
-	public List<ProjectDto> findAllProjects(String name) {
-		// TODO Auto-generated method stub
-		if (name != null) {
-			return projectSrv.findAllProjects(name);
-		} else {
-			return projectSrv.findAllProjects();
-		}
-
-	}
-
-	@Override
-	public List<ProjectDto> findAllProjectsFavourites() {
-		// TODO Auto-generated method stub
-		return projectSrv.findAllProjectsFavourites();
-	}
-
-	@Override
-	public ResponseEntity<ProjectDto> saveProyect(ProjectDto project) {
-		// TODO Auto-generated method stub
 		try {
-			ProjectDto _project = projectSrv.saveProyect(project);
+			_project = projectSrv.findProyectByName(name);
 			return new ResponseEntity<>(_project, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+	}
+
+	@Override
+	public ResponseEntity<List<ProjectDto>> findAllProjects(String name) {
+		List<ProjectDto> _listProjects;
+
+		try {
+			if (name != null) {
+				_listProjects = projectSrv.findAllProjects(name);
+			} else {
+				_listProjects = projectSrv.findAllProjects();
+			}
+			return new ResponseEntity<List<ProjectDto>>(_listProjects, HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<List<ProjectDto>>(new ArrayList<ProjectDto>(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 
 	}
 
 	@Override
+	public ResponseEntity<List<ProjectDto>> findAllProjectsFavourites() {
+		List<ProjectDto> _listProjects;
+
+		try {
+			_listProjects = projectSrv.findAllProjectsFavourites();
+			return new ResponseEntity<List<ProjectDto>>(_listProjects, HttpStatus.CREATED);
+
+		} catch (Exception e) {
+			return new ResponseEntity<List<ProjectDto>>(new ArrayList<ProjectDto>(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@Override
+	public ResponseEntity<ProjectDto> saveProyect(ProjectDto project) {
+		try {
+			ProjectDto _project = projectSrv.saveProyect(project);
+			return new ResponseEntity<ProjectDto>(_project, HttpStatus.CREATED);
+		} catch (Exception e) {
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@Override
 	public ResponseEntity<HttpStatus> deleteProject(long id) {
-		// TODO Auto-generated method stub
 		try {
 			projectSrv.deleteProyect(id);
-			return new ResponseEntity<>(HttpStatus.OK);
+			return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<HttpStatus>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 

@@ -25,7 +25,7 @@ public class FavouriteCtrl implements IFavouriteCtrl {
 	public ResponseEntity<FavouriteDto> saveFavourite(FavouriteDto favourite) {
 		try {
 			FavouriteDto _favourite = favouriteSrv.saveFavourite(favourite);
-			return new ResponseEntity<>(_favourite, HttpStatus.CREATED);
+			return new ResponseEntity<FavouriteDto>(_favourite, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -35,9 +35,9 @@ public class FavouriteCtrl implements IFavouriteCtrl {
 	public ResponseEntity<HttpStatus> deleteProject(long id) {
 		try {
 			favouriteSrv.deleteFavourite(id);
-			return new ResponseEntity<>(HttpStatus.OK);
+			return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<HttpStatus>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
