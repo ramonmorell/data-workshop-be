@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.dataworkshop</groupId>
-	<artifactId>data-workshop-se</artifactId>
+	<artifactId>data-workshop-us</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>data-workshop-se</name>
+	<name>data-workshop-us</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -59,10 +59,6 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-oauth2</artifactId>
 		</dependency>
 	</dependencies>
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dataworkshop.dataworkshop.controller;
+package com.dataworkshop.dataworkshopus.controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dataworkshop.dataworkshop.entity.User;
+import com.dataworkshop.dataworkshopus.entity.User;
 
 /**
  * @author ramon

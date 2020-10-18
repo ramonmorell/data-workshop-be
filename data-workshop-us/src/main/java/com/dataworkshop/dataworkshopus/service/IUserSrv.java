@@ -1,11 +1,11 @@
 /**
  * 
  */
-package com.dataworkshop.dataworkshop.service;
+package com.dataworkshop.dataworkshopus.service;
 
 import org.springframework.stereotype.Service;
 
-import com.dataworkshop.dataworkshop.entity.User;
+import com.dataworkshop.dataworkshopus.entity.User;
 
 /**
  * @author ramon

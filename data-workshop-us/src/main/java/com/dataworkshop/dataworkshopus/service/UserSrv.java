@@ -1,22 +1,19 @@
 /**
  * 
  */
-package com.dataworkshop.dataworkshop.service;
+package com.dataworkshop.dataworkshopus.service;
 
 import java.time.LocalDateTime;
-import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dataworkshop.dataworkshop.entity.Role;
-import com.dataworkshop.dataworkshop.entity.User;
-import com.dataworkshop.dataworkshop.enums.RoleNames;
-import com.dataworkshop.dataworkshop.repository.RoleRepository;
-import com.dataworkshop.dataworkshop.repository.UserRepository;
-
-import javassist.NotFoundException;
+import com.dataworkshop.dataworkshopus.entity.Role;
+import com.dataworkshop.dataworkshopus.entity.User;
+import com.dataworkshop.dataworkshopus.enums.RoleNames;
+import com.dataworkshop.dataworkshopus.repository.RoleRepository;
+import com.dataworkshop.dataworkshopus.repository.UserRepository;
 
 /**
  * @author ramon

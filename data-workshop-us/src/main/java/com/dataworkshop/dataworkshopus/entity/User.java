@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dataworkshop.dataworkshop.entity;
+package com.dataworkshop.dataworkshopus.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

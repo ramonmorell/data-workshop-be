@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dataworkshop.dataworkshop.controller;
+package com.dataworkshop.dataworkshopus.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -9,8 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dataworkshop.dataworkshop.entity.User;
-import com.dataworkshop.dataworkshop.service.UserSrv;
+import com.dataworkshop.dataworkshopus.entity.User;
+import com.dataworkshop.dataworkshopus.service.UserSrv;
 
 import javassist.NotFoundException;
 
