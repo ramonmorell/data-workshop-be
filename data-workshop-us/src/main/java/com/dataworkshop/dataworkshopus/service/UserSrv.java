@@ -43,13 +43,5 @@ public class UserSrv implements IUserSrv {
 		User _user = userRepository.save(user);
 		return _user;
 	}
-
-	/*
-	 * @Override public User autheticate(User user) throws Exception { User _user;
-	 * try { _user = userRepository.findByName(user.getName()).get(); if
-	 * (_user.getPassword().equals(user.getPassword())) { return _user; } else {
-	 * throw new NotFoundException("Invalid password"); } } catch
-	 * (NoSuchElementException e) { throw new NotFoundException("Invalid password");
-	 * } }
-	 */
+	
 }

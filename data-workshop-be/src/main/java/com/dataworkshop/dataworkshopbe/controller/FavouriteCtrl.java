@@ -32,7 +32,7 @@ public class FavouriteCtrl implements IFavouriteCtrl {
 	}
 
 	@Override
-	public ResponseEntity<HttpStatus> deleteProject(long id) {
+	public ResponseEntity<HttpStatus> deleteFavourite(long id) {
 		try {
 			favouriteSrv.deleteFavourite(id);
 			return new ResponseEntity<HttpStatus>(HttpStatus.OK);

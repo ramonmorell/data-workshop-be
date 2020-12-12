@@ -25,5 +25,5 @@ public interface IFavouriteCtrl {
 	public ResponseEntity<FavouriteDto> saveFavourite(@RequestBody(required = false) FavouriteDto favourite);
 
 	@DeleteMapping(value = "/favourite/{id}")
-	public ResponseEntity<HttpStatus> deleteProject(@PathVariable("id") long id);
+	public ResponseEntity<HttpStatus> deleteFavourite(@PathVariable("id") long id);
 }

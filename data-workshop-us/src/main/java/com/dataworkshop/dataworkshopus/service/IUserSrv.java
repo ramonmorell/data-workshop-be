@@ -18,6 +18,4 @@ public interface IUserSrv {
 	
 	public User saveUser(User user) throws Exception; 
 	
-	/* public User autheticate(User user) throws Exception; */
-
 }
