@@ -3,18 +3,15 @@
  */
 package com.dataworkshop.dataworkshopus.controller;
 
-import java.util.HashSet;
 import java.util.NoSuchElementException;
-import java.util.Set;
-import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-import com.dataworkshop.dataworkshopus.dto.RoleDTO;
+
 import com.dataworkshop.dataworkshopus.dto.UserDTO;
-import com.dataworkshop.dataworkshopus.entity.Role;
 import com.dataworkshop.dataworkshopus.entity.User;
 import com.dataworkshop.dataworkshopus.service.UserSrv;
 import com.dataworkshop.dataworkshopus.utils.UserMapper;
