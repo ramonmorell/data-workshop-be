@@ -60,12 +60,12 @@ public class CreateInitData implements CommandLineRunner {
 		userUser.setName("user");
 		userUser.setEmail("user@user.com");
 		userUser.setCountry("es");
-		userUser.setPassword("$2a$10$POBoyXJMR5GQDropDq65.OZlFAO8PS3VBxG7bZuJSenUd0WM1PRJS");
+		userUser.setPassword("$2a$10$wfmr7fItb7KKMpJ2wxH/xug.tsKDZEyURB5L9c2sIcOJpHNAJlQBm");
 		userUser.setDateRegistry(LocalDateTime.now());
 		userUser.setEnabled(true);
 		Role roleUser = roleRepository.findByName(RoleNames.ROLE_USER).get();
 		userUser.getRoles().add(roleUser);
-		userRepository.save(userAdmin);
+		userRepository.save(userUser);
 		
 	}
 }
