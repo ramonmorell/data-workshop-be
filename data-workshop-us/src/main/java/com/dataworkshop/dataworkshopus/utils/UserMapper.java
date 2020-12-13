@@ -42,6 +42,8 @@ public class UserMapper {
 		User _user = new User();
 		_user.setId(userDTO.getId());
 		_user.setName(userDTO.getName());
+//		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//		_user.setPassword(encoder.encode(userDTO.getPassword()));
 		_user.setPassword(userDTO.getPassword());
 		_user.setEmail(userDTO.getEmail());
 		_user.setCountry(userDTO.getCountry());
