@@ -24,6 +24,28 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(this.userSrv).passwordEncoder(passwordEncoder());
+// TODO recrypt cliente password
+//		auth.userDetailsService(this.userSrv).passwordEncoder(new PasswordEncoder(){
+//
+//	        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//
+//	        @Override
+//	        public boolean matches(CharSequence rawPassword, String encodedPassword) {
+//
+//	            // Decoding stuff on the encrypted password sended by the client (rawPassword)
+//
+//	        	String decryptedPassword = "";
+//
+//	            return encoder.matches(decryptedPassword, encodedPassword);
+//	        }
+//
+//	        @Override
+//	        public String encode(CharSequence rawPassword) {
+//	            //Same crypto operation to get the plain password
+//	        	String decryptedPassword = "";
+//	            return encoder.encode(decryptedPassword);
+//	        }
+//	    });
 	}
 
 	@Override
